@@ -63,7 +63,7 @@ func (c *MainController) Post() {
 	//	return
 	//}
 
-	
+
 	fmt.Println( name )
 	maxAge := 0
 	if name != "" {
@@ -97,5 +97,11 @@ func (c *MainController) Find() {
     param0 := c.Ctx.Input.Param( "0")
 	param1 := c.Ctx.Input.Param( "1")
 	c.Ctx.WriteString(param0 + "-" + param1)
+	return
+}
+
+func (c *MainController) Count() {
+
+	c.Ctx.WriteString("3-2")
 	return
 }

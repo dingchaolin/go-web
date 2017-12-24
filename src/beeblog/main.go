@@ -10,6 +10,8 @@ func main() {
 
 	//beego.Router("/", &controllers.MainController{})
 	beego.Router("/login", &controllers.MainController{})
+	//指定路由执行的方法
+	beego.Router("/login/count", &controllers.MainController{}, "get:Count")
 	//自动路由
 //localhost:8080/main/get
 //localhost:8080/main/add 这样访问即可
