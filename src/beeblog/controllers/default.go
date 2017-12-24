@@ -47,8 +47,14 @@ func (c *MainController) Get() {
 
 	c.Data["Pipe"] = "<div> Hello Pipe</div>"
 }
-
+//controller 接口返回多个值 数据 和 error
 func (c *MainController) Post() {
+
+	//cookie验证
+	if !checkAccount( c.Ctx ){
+		c.Redirect("/login", 302)
+		return
+	}
 	name := c.Input().Get("name")
 
 
@@ -72,4 +78,18 @@ func checkAccount( c *context.Context) bool{
 	}
 
 
+}
+
+func (c *MainController) Add() {
+
+	c.Ctx.WriteString("Add")
+	return
+}
+
+func (c *MainController) Find() {
+// restful路由参数的获取
+    param0 := c.Ctx.Input.Param( "0")
+	param1 := c.Ctx.Input.Param( "1")
+	c.Ctx.WriteString(param0 + "-" + param1)
+	return
 }
