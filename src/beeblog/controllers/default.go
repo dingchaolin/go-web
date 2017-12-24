@@ -57,7 +57,13 @@ func (c *MainController) Post() {
 	}
 	name := c.Input().Get("name")
 
+	//错误处理
+	//if err != nil {
+	//	beego.Error( err )
+	//	return
+	//}
 
+	
 	fmt.Println( name )
 	maxAge := 0
 	if name != "" {
