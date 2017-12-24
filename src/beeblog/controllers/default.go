@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/context"
 	"fmt"
 )
 
@@ -62,8 +63,8 @@ func (c *MainController) Post() {
 	return
 }
 
-func checkAccount( c *beego.Controller) bool{
-	_, err := c.Ctx.Request.Cookie("name")
+func checkAccount( c *context.Context) bool{
+	_, err := c.Request.Cookie("name")
 	if err != nil{
 		return  true
 	}else{
